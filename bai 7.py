@@ -32,10 +32,11 @@ try:
     tp = (input("please input number for tb: "))
     fp = (input("please input number for fp: "))
     fn = (input("Please input number for fn: "))
-
-
 ##result of recall, precision, f1score
     if  valid_input(tp,fp,fn):
+        tp = int(tp)
+        fp = int(fp)
+        fn = int(fn)
         result_Recall = Recall_calc(tp, fn)
         result_Precision = Precision_calc(tp, fp)
         result_F1score = F1score_calc(result_Precision,result_Recall)
