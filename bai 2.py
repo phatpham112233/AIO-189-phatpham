@@ -35,5 +35,5 @@ def main():
         except ValueError:
             print("Invalid input. Please enter only numbers separated by spaces.")
 
-if __name == "__main":
+if __name__ == "__main__":
     main()
