@@ -1,0 +1,5 @@
+Hello world
+This is a sample text file
+Hello again
+This file is used to count the occurrences of each word
+Hello world again and again

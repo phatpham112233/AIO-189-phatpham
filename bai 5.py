@@ -6,8 +6,8 @@ def md_nre_single_sample(y, y_hat, n, P):
     loss = difference ** P
     return loss
 
-y = 100
-y_hat = 99.5
+y = 2
+y_hat = 9
 n = 2
 p = 1
 
