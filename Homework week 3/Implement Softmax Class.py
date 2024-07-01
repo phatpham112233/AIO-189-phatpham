@@ -18,7 +18,7 @@ class SoftmaxStable(nn.Module):
         exp_x = torch.exp(x - max_x)
         return exp_x / exp_x.sum()
 
-# Examples
+# Test
 data = torch.Tensor([1, 2, 3])
 softmax = Softmax()
 output = softmax(data)
