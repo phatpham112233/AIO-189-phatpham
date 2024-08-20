@@ -65,3 +65,92 @@ x = data['TV']
 y = data['Radio']
 corr_xy = correlation(x, y)
 print(f"Correlation between TV and Sales: {round(corr_xy, 2)}")
+## question 6 ##
+
+import pandas as pd
+import numpy as np
+
+def correlation(x, y):
+    return np.corrcoef(x, y)[0, 1]
+
+data = pd.read_csv("advertising.csv")
+features = ['TV', 'Radio', 'Newspaper']
+
+for feature_1 in features:
+    for feature_2 in features:
+        correlation_value = correlation(data[feature_1], data[feature_2])
+        print(f"Correlation between {feature_1} and {feature_2}: {round(correlation_value, 2)}")
+
+## question 7 ##
+
+import numpy as np
+import pandas as pd
+
+data = pd.read_csv("advertising.csv")
+x = data['Radio']
+y = data['Newspaper']
+
+result = np.corrcoef(x, y)
+print(result)
+
+## quesion 8 ## 
+
+import pandas as pd
+
+data = pd.read_csv("advertising.csv")
+result = data.corr()
+print(result)
+
+## question 9 ##
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+data = pd.read_csv("advertising.csv")
+data_corr = data.corr()
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(data_corr, annot=True, fmt=".2f", linewidth=.5)
+plt.show()
+
+
+## question 10 ## 
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+tfidf_vectorizer = TfidfVectorizer()
+context_embedded = tfidf_vectorizer.fit_transform(context)
+print(context_embedded.toarray()[7][0])
+
+## question 11 ## 
+def tfidf_search(question, tfidf_vectorizer, top_d=5):
+    query_embedded = tfidf_vectorizer.transform([question])
+    cosine_scores = cosine_similarity(query_embedded, context_embedded)[0]
+    
+    results = []
+    for idx in cosine_scores.argsort()[-top_d:][::-1]:
+        results.append({'id': idx, 'cosine_score': cosine_scores[idx]})
+    
+    return results
+
+question = vi_data_df.iloc[0]['question']
+results = tfidf_search(question, tfidf_vectorizer, top_d=5)
+print(results[0]['cosine_score'])
+
+
+## question 12 ## 
+
+def corr_search(question, tfidf_vectorizer, top_d=5):
+    query_embedded = tfidf_vectorizer.transform([question]).toarray()
+    corr_scores = np.corrcoef(query_embedded, context_embedded.toarray())[0][1:]
+
+    results = []
+    for idx in corr_scores.argsort()[-top_d:][::-1]:
+        results.append({'id': idx, 'corr_score': corr_scores[idx]})
+
+    return results
+
+question = vi_data_df.iloc[0]['question']
+results = corr_search(question, tfidf_vectorizer, top_d=5)
+print(results[1]['corr_score'])
