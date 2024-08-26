@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1DVKsfl4Fc-nJKcxBKKBz5JWVItSctjHV
 """
 
-!pip install opencv-python-headless numpy
+#!pip install opencv-python-headless numpy
 
 import cv2
 import numpy as np

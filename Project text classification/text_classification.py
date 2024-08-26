@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 nltk.download('stopwords')
 nltk.download('punkt')
 
-DATASET_PATH = 'C:/Users/Admin/AIO-189-phatpham-1/Project text classification/text_classification.py'
+DATASET_PATH = '/content/2cls_spam_text_cls.csv'
 df = pd.read_csv(DATASET_PATH)
 messages = df['Message'].values.tolist()
 labels = df['Category'].values.tolist()
