@@ -10,7 +10,7 @@ Original file is located at
 import pandas as pd
 
 # Load dataset, handling potential errors with 'on_bad_lines' and 'engine' parameters
-df = pd.read_csv('/content/IMDB-Dataset.csv', on_bad_lines='skip', engine='python')
+df = pd.read_csv('C:\Users\Admin\AIO-189-phatpham-1\Project Sentiment Analysis\IMDB-Dataset.csv', on_bad_lines='skip', engine='python')
 
 # Remove duplicate rows
 df = df.drop_duplicates()
